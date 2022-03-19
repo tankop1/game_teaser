@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: consolas;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #111;
+}
+
+:root {
+    --color: #3fefef;
+    --fingerprint: url(assets/fingerPrint_02.png);
+}
+
+/* SCAN */
+
+.scan {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.scan .fingerprint {
+    position: relative;
+    width: 300px;
+    height: 380px;
+    background: url(assets/fingerPrint_01.png);
+    background-size: 300px;
+}
+
+.scan .fingerprint::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--fingerprint);
+    background-size: 300px;
+    animation: animate 4s ease-in-out 1;
+}
+
+@keyframes animate {
+    0%, 100% {
+        height: 0%;
+    }
+
+    50% {
+        height: 100%;
+    }
+}
+
+.scan .fingerprint::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background-color: var(--color);
+    border-radius: 8px;
+    filter: drop-shadow(0 0 20px var(--color)) drop-shadow(0 0 60px var(--color));
+    animation: animate_line 4s ease-in-out 1;
+}
+
+@keyframes animate_line {
+    0%, 100% {
+        top: 0%;
+    }
+
+    50% {
+        top: 100%;
+    }
+}
+
+.scan h3 {
+    text-transform: uppercase;
+    font-size: 2em;
+    letter-spacing: 2px;
+    margin-top: 20px;
+    color: var(--color);
+    filter: drop-shadow(0 0 20px var(--color)) drop-shadow(0 0 60px var(--color));
+    animation: animate_text 0.5s steps(1) infinite;
+}
+
+@keyframes animate_text {
+    0%, 100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* MAIN */
+
+main {
+    display: none;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.countdown {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+    z-index: 2;
+    position: absolute;
+    bottom: 5%;
+}
+
+.tile {
+    width: 150px;
+    height: 150px;
+    background-color: #202020;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.tile h1 {
+    font-size: 3rem;
+    color: var(--color);
+    filter: drop-shadow(0 0 20px var(--color)) drop-shadow(0 0 60px var(--color));
+}
+
+.tile h2 {
+    font-size: 1.35rem;
+    color: var(--color);
+    filter: drop-shadow(0 0 20px var(--color)) drop-shadow(0 0 60px var(--color));
+    margin-top: 12px;
+}
+
+/* DOCUMENT */
+
+.document {
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    background-color: #202020;
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 30%);
+    width: 60%;
+    height: 80%;
+    color: white;
+    font-size: 2rem;
+    padding: 40px;
+}
+
+.contents {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 30px;
+}
+
+.document span {
+    display: inline-block;
+    background-color: var(--color);
+    height: 40px;
+    max-width: 850px;
+}
+
+.bar-1 {
+    grid-column: 1 / span 4;
+    grid-row: 1 / span 1;
+}
+
+.bar-2 {
+    grid-column: 5 / span 1;
+    grid-row: 1 / span 1;
+}
+
+.bar-3 {
+    grid-column: 1 / span 5;
+    grid-row: 2 / span 1;
+}
+
+.bar-4 {
+    grid-column: 1 / span 1;
+    grid-row: 3 / span 1;
+}
+
+.bar-5 {
+    grid-column: 2 / span 4;
+    grid-row: 3 / span 1;
+}
+
+.bar-6 {
+    grid-column: 1 / span 5;
+    grid-row: 4 / span 1;
+}
+
+.bar-7 {
+    grid-column: 1 / span 5;
+    grid-row: 5 / span 1;
+}
+
+.bar-8 {
+    grid-column: 1 / span 2;
+    grid-row: 6 / span 1;
+}
+
+.bar-9 {
+    grid-column: 3 / span 1;
+    grid-row: 6 / span 1;
+    margin-left: 25px;
+}
+
+.bar-10 {
+    grid-column: 4 / span 2;
+    grid-row: 6 / span 1;
+}
+
+/*
+.contents {
+    width: 800px;
+}
+
+.document b {
+    padding: 15px;
+}
+
+.document span {
+    display: inline-block;
+    background-color: var(--color);
+    height: 40px;
+    width: 800px;
+}
+
+.half-bar {
+    width: 647px !important;
+}
+
+.third-bar {
+    width: 341px !important;
+}
+
+.document div {
+    margin-top: 25px;
+}
+*/
