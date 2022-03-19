@@ -11,6 +11,7 @@ body {
     align-items: center;
     min-height: 100vh;
     background-color: #111;
+    overflow-y: hidden;
 }
 
 :root {
@@ -87,7 +88,7 @@ body {
     margin-top: 20px;
     color: var(--color);
     filter: drop-shadow(0 0 20px var(--color)) drop-shadow(0 0 60px var(--color));
-    animation: animate_text 0.5s steps(1) infinite;
+    animation: animate_text 0.5s steps(1) 8;
 }
 
 @keyframes animate_text {
@@ -114,10 +115,11 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 50%;
+    width: 80%;
     z-index: 2;
     position: absolute;
-    bottom: 5%;
+    bottom: 8%;
+    left: 10%;
 }
 
 .tile {
@@ -158,6 +160,18 @@ main {
     color: white;
     font-size: 2rem;
     padding: 40px;
+    animation: moveDocument 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes moveDocument {
+    0% {
+        transform: translateY(300px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 .contents {
@@ -226,31 +240,21 @@ main {
     grid-row: 6 / span 1;
 }
 
-/*
-.contents {
-    width: 800px;
+main a {
+    color: white;
+    text-decoration: none;
+    text-transform: capitalize;
+    position: fixed;
+    top: 5%;
+    left: calc(50% - 100px);
+    width: 200px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
 }
 
-.document b {
-    padding: 15px;
+main a span {
+    color: var(--color);
+    font-weight: normal;
+    margin-right: 10px;
 }
-
-.document span {
-    display: inline-block;
-    background-color: var(--color);
-    height: 40px;
-    width: 800px;
-}
-
-.half-bar {
-    width: 647px !important;
-}
-
-.third-bar {
-    width: 341px !important;
-}
-
-.document div {
-    margin-top: 25px;
-}
-*/

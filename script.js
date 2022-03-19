@@ -1,7 +1,13 @@
 let scan = $('.scan');
+let scanText = $('.scan h3');
 let main = $('main');
 
-setTimeout(removeScan, 4000);
+setTimeout(changeText, 4000);
+setTimeout(removeScan, 6000);
+
+function changeText() {
+    scanText.text('ACCESS GRANTED');
+}
 
 function removeScan() {
     scan.css('display', 'none');
